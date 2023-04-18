@@ -74,7 +74,8 @@ contract OverflowFarming is ReentrancyGuard {
         uint256 _offeringAmount,
         uint256 _raisingAmount,
         address _adminAddress,
-        IERC20 _rewardToken
+        IERC20 _rewardToken,
+        uint256 _rewardPerSecond
     ) external onlyAdmin {
         require(initialized == false, "already initialized");
 
@@ -87,6 +88,7 @@ contract OverflowFarming is ReentrancyGuard {
         totalAmount = 0;
         adminAddress = _adminAddress;
         rewardToken = _rewardToken;
+        rewardPerSecond = _rewardPerSecond;
 
         lastRewardTimestamp = startTime;
 
